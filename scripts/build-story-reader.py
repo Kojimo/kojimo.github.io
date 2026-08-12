@@ -257,7 +257,7 @@ def reader_html(slug: str, title: str, pdf_name: str, locale: str, page_count: i
 <head>
 \t<title>{safe_title} — Cosimo &quot;Kojimo&quot; Riondino</title>
 \t<meta charset="utf-8" />
-\t<meta name="viewport" content="width=device-width, initial-scale=1" />
+\t<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 \t<link rel="stylesheet" href="../assets/css/library.css" />
 \t<link rel="icon" href="../favicon.ico" sizes="any" />
 \t<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png" />

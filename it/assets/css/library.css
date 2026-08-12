@@ -75,9 +75,10 @@ body.story-reader-page {
 	display: flex;
 	flex-direction: column;
 	font-family: "Source Sans Pro", sans-serif;
-	height: 100dvh;
+	height: calc(var(--reader-vh, 1svh) * 100);
 	margin: 0;
-	min-height: 100vh;
+	max-height: calc(var(--reader-vh, 1svh) * 100);
+	min-height: 100svh;
 	overflow: hidden;
 }
 
@@ -163,9 +164,10 @@ body.story-reader-page {
 	display: flex;
 	flex: 1;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	min-height: 0;
-	padding: 0.75em 1em 1em;
+	overflow: hidden;
+	padding: 0.75em 1em 0;
 }
 
 .story-reader-book-wrap {
@@ -174,7 +176,44 @@ body.story-reader-page {
 	flex: 1;
 	justify-content: center;
 	min-height: 0;
+	overflow: hidden;
+	position: relative;
+	touch-action: pan-x pan-y;
 	width: 100%;
+}
+
+.story-reader-book-scaler {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	max-height: 100%;
+	transform-origin: center center;
+	transition: transform 0.15s ease-out;
+	width: 100%;
+	will-change: transform;
+}
+
+.story-reader-book-scaler.is-transforming {
+	transition: none;
+}
+
+.story-reader-book-wrap.is-zoomed {
+	touch-action: none;
+	user-select: none;
+}
+
+.story-reader-book-wrap.is-panning .story-reader-book-scaler {
+	cursor: grabbing;
+}
+
+.story-reader-book-wrap.is-zoomed:not(.is-panning) .story-reader-book-scaler {
+	cursor: grab;
+}
+
+.story-reader-book-wrap.is-zoomed.is-flip-zone-prev:not(.is-panning) .story-reader-book-scaler,
+.story-reader-book-wrap.is-zoomed.is-flip-zone-next:not(.is-panning) .story-reader-book-scaler {
+	cursor: pointer;
 }
 
 #book {
@@ -203,11 +242,30 @@ body.story-reader-page {
 }
 
 .story-reader-nav {
+	align-items: center;
 	display: flex;
 	flex-shrink: 0;
-	gap: 0.75em;
+	flex-wrap: wrap;
+	gap: 0.5em 0.75em;
 	justify-content: center;
-	margin-top: 0.75em;
+	margin-top: 0.5em;
+	padding-bottom: max(0.75em, env(safe-area-inset-bottom, 0px));
+	width: 100%;
+}
+
+.story-reader-zoom {
+	align-items: center;
+	display: flex;
+	gap: 0.35em;
+}
+
+.story-reader-zoom-level {
+	color: rgba(255, 255, 255, 0.5);
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 0.85em;
+	font-weight: 600;
+	min-width: 3.25em;
+	text-align: center;
 }
 
 .story-reader-nav button {
@@ -237,4 +295,37 @@ body.story-reader-page {
 .story-reader-nav button:disabled {
 	cursor: default;
 	opacity: 0.35;
+}
+
+@media screen and (max-width: 736px) {
+	.story-reader-toolbar {
+		gap: 0.5em 0.75em;
+		padding: 0.6em 1em;
+		padding-top: max(0.6em, env(safe-area-inset-top, 0px));
+	}
+
+	.story-reader-toolbar h1 {
+		font-size: 0.95em;
+	}
+
+	.story-reader-toolbar a,
+	.story-reader-toolbar button {
+		font-size: 0.8em;
+		padding: 0.4em 0.75em;
+	}
+
+	.story-reader-stage {
+		padding: 0.5em 0.75em 0;
+	}
+
+	.story-reader-nav {
+		gap: 0.4em 0.6em;
+		margin-top: 0.4em;
+	}
+
+	.story-reader-nav button {
+		font-size: 1em;
+		min-width: 2.75em;
+		padding: 0.45em 0.85em;
+	}
 }
