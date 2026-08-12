@@ -35,9 +35,6 @@
 		var zoom = 1;
 		var panX = 0;
 		var panY = 0;
-		var isPinching = false;
-		var pinchStartDist = 0;
-		var pinchStartZoom = 1;
 		var dragState = null;
 		var btnZoomOut = null;
 		var btnZoomIn = null;
@@ -63,12 +60,6 @@
 				? window.visualViewport.height
 				: window.innerHeight;
 			document.documentElement.style.setProperty('--reader-vh', (height * 0.01) + 'px');
-		}
-
-		function touchDistance(touches) {
-			var dx = touches[0].clientX - touches[1].clientX;
-			var dy = touches[0].clientY - touches[1].clientY;
-			return Math.hypot(dx, dy);
 		}
 
 		function clampPan() {
@@ -346,32 +337,16 @@
 			});
 
 			scalerEl.addEventListener('touchstart', function (e) {
-				if (e.touches.length === 2) {
-					resetDrag();
-					isPinching = true;
-					pinchStartDist = touchDistance(e.touches);
-					pinchStartZoom = zoom;
-					e.preventDefault();
+				if (e.touches.length !== 1 || !shouldStartPan(e.touches[0].clientX)) {
 					return;
 				}
 
-				if (e.touches.length === 1 && shouldStartPan(e.touches[0].clientX)) {
-					startDrag(e.touches[0].clientX, e.touches[0].clientY, 'touch');
-					e.preventDefault();
-					e.stopPropagation();
-				}
+				startDrag(e.touches[0].clientX, e.touches[0].clientY, 'touch');
+				e.preventDefault();
+				e.stopPropagation();
 			}, { passive: false, capture: true });
 
 			scalerEl.addEventListener('touchmove', function (e) {
-				if (isPinching && e.touches.length === 2) {
-					var distance = touchDistance(e.touches);
-					if (pinchStartDist > 0) {
-						setZoom(pinchStartZoom * (distance / pinchStartDist), false);
-					}
-					e.preventDefault();
-					return;
-				}
-
 				if (dragState && dragState.pointer === 'touch' && e.touches.length === 1 && zoom > 1) {
 					moveDrag(e.touches[0].clientX, e.touches[0].clientY, e);
 				}
@@ -379,7 +354,6 @@
 
 			scalerEl.addEventListener('touchend', function (e) {
 				if (e.touches.length === 0) {
-					isPinching = false;
 					if (dragState && dragState.pointer === 'touch') {
 						var touch = e.changedTouches[0];
 						endDrag(touch ? touch.clientX : dragState.lastX, touch ? touch.clientY : dragState.lastY);
@@ -390,7 +364,6 @@
 				}
 
 				if (e.touches.length === 1) {
-					isPinching = false;
 					if (shouldStartPan(e.touches[0].clientX)) {
 						startDrag(e.touches[0].clientX, e.touches[0].clientY, 'touch');
 					} else {
@@ -400,7 +373,6 @@
 			}, { capture: true });
 
 			scalerEl.addEventListener('touchcancel', function () {
-				isPinching = false;
 				resetDrag();
 			}, { capture: true });
 
