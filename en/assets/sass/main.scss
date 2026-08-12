@@ -209,7 +209,9 @@
 		&.avatar48 {
 			width: 48px;
 			height: 48px;
-			background: #f00;
+			background: transparent;
+			border-radius: 50%;
+			overflow: hidden;
 
 			img {
 				width: 48px;
@@ -508,13 +510,14 @@
 	}
 
 	#logo {
-		position: relative;
+		@include vendor('display', 'flex');
+		@include vendor('flex-direction', 'column');
+		@include vendor('align-items', 'center');
+		text-align: center;
 		margin: 1.75em 1.5em 1.5em 1.5em;
-		min-height: 48px;
 		cursor: default;
 
 		h1 {
-			position: relative;
 			color: #fff;
 			font-weight: 600;
 			font-size: 1em;
@@ -522,7 +525,6 @@
 		}
 
 		p {
-			position: relative;
 			display: block;
 			font-size: 0.6em;
 			color: rgba(255, 255, 255, 0.5);
@@ -531,9 +533,7 @@
 		}
 
 		.image {
-			position: absolute;
-			left: 0;
-			top: 0;
+			margin: 0 0 0.75em 0;
 		}
 	}
 
@@ -761,8 +761,7 @@
 
 			#logo {
 				.image {
-					position: relative;
-					margin: 0 0 0.5em 0;
+					margin: 0 0 0.75em 0;
 				}
 			}
 

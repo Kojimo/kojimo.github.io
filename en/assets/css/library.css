@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+
+/* --- Stories shelf (homepage #stories) — portfolio .item cards with book covers --- */
+
+#stories .row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#stories .row:after {
+	content: none;
+	display: none;
+}
+
+#stories .row > * {
+	float: none;
+	width: 25%;
+}
+
+@media screen and (max-width: 736px) {
+	#stories .row > * {
+		width: 50%;
+	}
+}
+
+#stories .story-item {
+	transition: transform 0.25s ease;
+	width: 100%;
+}
+
+#stories .story-item:hover {
+	transform: translateY(-4px);
+}
+
+#stories .story-cover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+	display: block;
+	overflow: hidden;
+	width: 100%;
+}
+
+#stories .story-cover img {
+	display: block;
+	height: auto;
+	width: 100%;
+}
+
+#stories .item header .story-excerpt {
+	color: #888;
+	font-size: 0.85em;
+	font-style: italic;
+	line-height: 1.45;
+	margin: 0.75em 1em 0;
+	text-align: center;
+}
+
+#stories .item header .story-meta {
+	color: #aaa;
+	font-size: 0.75em;
+	margin: 0.5em 1em 0;
+}
+
+#stories .story-shelf-empty {
+	color: #888;
+	font-style: italic;
+	margin: 0;
+}
+
+/* --- Story reader page (palette aligned with main.css / Prologue theme) --- */
+
+body.story-reader-page {
+	background: #222629;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Source Sans Pro", sans-serif;
+	height: 100dvh;
+	margin: 0;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+.story-reader-toolbar {
+	align-items: center;
+	background: #222629;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+	box-shadow: inset 0 -0.15em 0.25em 0 rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-shrink: 0;
+	flex-wrap: wrap;
+	gap: 0.75em 1.25em;
+	justify-content: space-between;
+	padding: 0.85em 1.5em;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+.story-reader-toolbar h1 {
+	color: #fff;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 1.1em;
+	font-weight: 600;
+	margin: 0;
+}
+
+.story-reader-toolbar-actions {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6em;
+}
+
+.story-reader-toolbar a,
+.story-reader-toolbar button {
+	background: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 0.35em;
+	color: rgba(255, 255, 255, 0.75);
+	cursor: pointer;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 0.85em;
+	font-weight: 600;
+	padding: 0.45em 0.9em;
+	text-decoration: none;
+	transition: color 0.35s ease-in-out, background 0.35s ease-in-out, border-color 0.35s ease-in-out;
+}
+
+.story-reader-toolbar a:hover,
+.story-reader-toolbar button:hover {
+	background: rgba(255, 255, 255, 0.05);
+	border-color: rgba(255, 255, 255, 0.15);
+	color: #fff;
+}
+
+.story-reader-toolbar .btn-download {
+	background-color: #BC6C89;
+	border-color: #BC6C89;
+	color: #fff;
+}
+
+.story-reader-toolbar .btn-download:hover {
+	background-color: #c97893;
+	border-color: #c97893;
+	color: #fff;
+}
+
+.story-reader-toolbar .btn-download:active {
+	background-color: #a85a76;
+	border-color: #a85a76;
+}
+
+.story-reader-page-indicator {
+	color: rgba(255, 255, 255, 0.5);
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 0.85em;
+	font-weight: 600;
+}
+
+.story-reader-stage {
+	align-items: center;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 0;
+	padding: 0.75em 1em 1em;
+}
+
+.story-reader-book-wrap {
+	align-items: center;
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	min-height: 0;
+	width: 100%;
+}
+
+#book {
+	margin: 0 auto;
+	max-height: 100%;
+	width: 100%;
+}
+
+/* Flipbook pages (one JPG per PDF page) */
+
+.story-reader-page .page {
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.story-reader-page .page.page-sheet {
+	background: #1a1d1f;
+	padding: 0;
+}
+
+.story-reader-page .page.page-sheet img {
+	display: block;
+	height: 100%;
+	object-fit: fill;
+	width: 100%;
+}
+
+.story-reader-nav {
+	display: flex;
+	flex-shrink: 0;
+	gap: 0.75em;
+	justify-content: center;
+	margin-top: 0.75em;
+}
+
+.story-reader-nav button {
+	background: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 0.35em;
+	color: rgba(255, 255, 255, 0.75);
+	cursor: pointer;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 1.1em;
+	font-weight: 600;
+	min-width: 3em;
+	padding: 0.5em 1em;
+	transition: color 0.35s ease-in-out, background 0.35s ease-in-out;
+}
+
+.story-reader-nav button:hover:not(:disabled) {
+	background: rgba(255, 255, 255, 0.05);
+	color: #fff;
+}
+
+.story-reader-nav button:active:not(:disabled) {
+	background: rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125);
+}
+
+.story-reader-nav button:disabled {
+	cursor: default;
+	opacity: 0.35;
+}

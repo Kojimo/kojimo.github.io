@@ -1709,7 +1709,9 @@
 		.image.avatar48 {
 			width: 48px;
 			height: 48px;
-			background: #f00;
+			background: transparent;
+			border-radius: 50%;
+			overflow: hidden;
 		}
 
 			.image.avatar48 img {
@@ -1950,6 +1952,34 @@
 				font-size: 1em;
 			}
 
+/* Centered card grids (portfolio & music: 3 per row) */
+
+	#portfolio .row,
+	#music .row {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	#portfolio .row:after,
+	#music .row:after {
+		content: none;
+		display: none;
+	}
+
+	#portfolio .row > *,
+	#music .row > * {
+		float: none;
+		width: 33.3333333333%;
+	}
+
+	@media screen and (max-width: 736px) {
+		#portfolio .row > *,
+		#music .row > * {
+			width: 100%;
+		}
+	}
+
 /* Icons */
 
 	.icon {
@@ -2018,6 +2048,56 @@
 				margin-bottom: 0;
 			}
 
+		.lang-switcher {
+			padding: 0 1.5em 1em 1.5em;
+			text-align: center;
+		}
+
+			.lang-switcher ul {
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;
+				margin: 0;
+				list-style: none;
+				padding: 0;
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				border-radius: 4px;
+				overflow: hidden;
+			}
+
+			.lang-switcher li {
+				-moz-flex: 1;
+				-webkit-flex: 1;
+				-ms-flex: 1;
+				flex: 1;
+			}
+
+			.lang-switcher a {
+				display: block;
+				padding: 0.5em 0.75em;
+				color: rgba(255, 255, 255, 0.5);
+				text-decoration: none;
+				font-size: 0.7em;
+				font-weight: 600;
+				letter-spacing: 0.03em;
+				-moz-transition: color 0.35s ease-in-out, background 0.35s ease-in-out;
+				-webkit-transition: color 0.35s ease-in-out, background 0.35s ease-in-out;
+				-ms-transition: color 0.35s ease-in-out, background 0.35s ease-in-out;
+				transition: color 0.35s ease-in-out, background 0.35s ease-in-out;
+			}
+
+				.lang-switcher a:hover {
+					color: #fff;
+					background: rgba(255, 255, 255, 0.05);
+				}
+
+				.lang-switcher a.is-active {
+					color: #fff;
+					background: rgba(0, 0, 0, 0.2);
+					box-shadow: inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125);
+				}
+
 		#header .icons {
 			font-size: 0.8em;
 			text-align: center;
@@ -2036,14 +2116,24 @@
 				}
 
 	#logo {
-		position: relative;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		text-align: center;
 		margin: 1.75em 1.5em 1.5em 1.5em;
-		min-height: 48px;
 		cursor: default;
 	}
 
 		#logo h1 {
-			position: relative;
 			color: #fff;
 			font-weight: 600;
 			font-size: 1em;
@@ -2051,7 +2141,6 @@
 		}
 
 		#logo p {
-			position: relative;
 			display: block;
 			font-size: 0.6em;
 			color: rgba(255, 255, 255, 0.5);
@@ -2060,9 +2149,7 @@
 		}
 
 		#logo .image {
-			position: absolute;
-			left: 0;
-			top: 0;
+			margin: 0 0 0.75em 0;
 		}
 
 	#nav ul {
@@ -2277,8 +2364,7 @@
 			}
 
 			#logo .image {
-				position: relative;
-				margin: 0 0 0.5em 0;
+				margin: 0 0 0.75em 0;
 			}
 
 			#nav ul li a {

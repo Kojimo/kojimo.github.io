@@ -1,0 +1,30 @@
+{
+  "radja-e-la-gemma-del-destino": {
+    "title": "Radja e la Gemma del Destino",
+    "order": 1,
+    "shelf": {
+      "en": {
+        "excerpt": "«The gem of destiny allows one to relive past, present, and future events…»",
+        "meta": "2024 · Fantasy · Italian"
+      },
+      "it": {
+        "excerpt": "«La gemma del destino permette di rivivere eventi chiave passati, presenti e futuri…»",
+        "meta": "2024 · Fantasy · Italiano"
+      }
+    }
+  },
+  "non-e-ancora-finita": {
+    "title": "Non è ancora finita",
+    "order": 2,
+    "shelf": {
+      "en": {
+        "excerpt": "Caterina's everyday life is turned upside down—but for her, life isn't over yet.",
+        "meta": "2023 · Drama · Italian"
+      },
+      "it": {
+        "excerpt": "La quotidianità di Caterina viene stravolta: ma la vita, per lei, non è ancora finita.",
+        "meta": "2023 · Drammatico · Italiano"
+      }
+    }
+  }
+}

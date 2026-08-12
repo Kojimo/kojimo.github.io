@@ -13,10 +13,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/library.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<link rel="shortcut icon" type="image/png" href="images/avatar.png"/>
-		<link rel="shortcut icon" type="image/png" href="https://kojimo.github.io/en/images/avatar.png"/>
+		<link rel="icon" href="favicon.ico" sizes="any" />
+		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+		<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png" />
+		<link rel="apple-touch-icon" sizes="192x192" href="images/favicon-192.png" />
 	</head>
     <body>
 		<!-- Header -->
@@ -26,9 +29,9 @@
 
 					<!-- Logo -->
 					<div id="logo">
-						<!-- <span class="image avatar48"><img src="images/avatar.png" alt="" /></span> -->
+						<span class="image avatar48"><img src="images/avatar.png" alt="" /></span>
 						<h1 id="title">Cosimo "Kojimo" Riondino</h1>
-						<p style="text-align: center;">Game Designer, Writer, Developer & Webdesigner</p>
+						<p>Game Designer, Writer, Developer & Webdesigner</p>
 					</div>
 
 					<!-- Nav -->
@@ -46,6 +49,14 @@
 				</div>
 
 				<div class="bottom">
+
+					<!-- Language Switcher -->
+					<nav class="lang-switcher" aria-label="Language">
+						<ul>
+							<li><a href="../it/index.html" lang="it" hreflang="it">Italiano</a></li>
+							<li><a href="index.html" lang="en" hreflang="en" class="is-active" aria-current="page">English</a></li>
+						</ul>
+					</nav>
 
 					<!-- Social Icons -->
 					<ul class="icons">
@@ -123,59 +134,36 @@
 							<h2>My Stories</h2>
 						</header>
 
-						<p>My personal space where I will post short stories I write/wrote in italian or in a very bad english!</p>
+						<p>My personal space where I post short stories I write/wrote in italian or in a very bad english!</p>
 
-						<p><i>Coming soon...</i></p>
-						<!--
 						<div class="row">
-							<div class="4u 12u$(mobile)">
-								<article class="item">
-									<a href="http://whitephoenix.horizon-team.com/rival-destinies" class="image fit"><img src="images/rd.jpg" alt="" /></a>
-									<header>
-										<h3>Rival Destinies</h3>
-										<p style="text-align: justify;text-justify: inter-word;margin: 20px;">
-										Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
-										ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
-										laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
-										parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
-										dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
-										ornare iaculis.</p>
-									</header>
-								</article>
-
+							<!-- STORIES_SHELF_START -->
+							<div class="3u 12u$(mobile)">
+								<article class="item story-item">
+									<a href="stories/radja-e-la-gemma-del-destino.html" class="image fit story-cover">
+											<img src="images/stories/radja-e-la-gemma-del-destino/page-01.jpg" alt="Radja e la Gemma del Destino" />
+										</a>
+										<header>
+											<h3>Radja e la Gemma del Destino</h3>
+											<p class="story-excerpt">«The gem of destiny allows one to relive past, present, and future events…»</p>
+											<p class="story-meta">2024 · Fantasy · Italian</p>
+										</header>
+									</article>
 							</div>
-							<div class="4u 12u$(mobile)">
-								<article class="item">
-									<a href="http://whitephoenix.horizon-team.com/rival-destinies" class="image fit"><img src="images/rd.jpg" alt="" /></a>
-									<header>
-										<h3>Rival Destinies</h3>
-										<p style="text-align: justify;text-justify: inter-word;margin: 20px;">
-										Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
-										ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
-										laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
-										parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
-										dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
-										ornare iaculis.</p>
-									</header>
-								</article>
-
-							</div>
-							<div class="4u 12u$(mobile)">
-								<article class="item">
-									<a href="http://whitephoenix.horizon-team.com/rival-destinies" class="image fit"><img src="images/rd.jpg" alt="" /></a>
-									<header>
-										<h3>Rival Destinies</h3>
-										<p style="text-align: justify;text-justify: inter-word;margin: 20px;">
-										Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
-										ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
-										laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
-										parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
-										dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
-										ornare iaculis.</p>
-									</header>
-								</article>
-							</div>
--->
+							<div class="3u$ 12u$(mobile)">
+								<article class="item story-item">
+									<a href="stories/non-e-ancora-finita.html" class="image fit story-cover">
+											<img src="images/stories/non-e-ancora-finita/page-01.jpg" alt="Non è ancora finita" />
+										</a>
+										<header>
+											<h3>Non è ancora finita</h3>
+											<p class="story-excerpt">Caterina&#x27;s everyday life is turned upside down—but for her, life isn&#x27;t over yet.</p>
+											<p class="story-meta">2023 · Drama · Italian</p>
+										</header>
+									</article>
+								</div>
+							<!-- STORIES_SHELF_END -->
+						</div>
 
 					</div>
 				</section>
@@ -251,6 +239,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/lang-switcher.js"></script>
 			<script src="assets/js/main.js"></script>
 
 	</body>
