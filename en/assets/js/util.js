@@ -153,6 +153,9 @@
 								href = $a.attr('href'),
 								target = $a.attr('target');
 
+							if ($a.hasClass('skel-layers-ignoreHref'))
+								return;
+
 							if (!href || href == '#' || href == '' || href == '#' + id)
 								return;
 

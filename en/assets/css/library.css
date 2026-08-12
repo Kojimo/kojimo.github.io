@@ -1,5 +1,79 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
 
+/* --- Sidebar logo --- */
+
+#logo .image.avatar48,
+#logo .image.avatar48 img {
+	width: 80px;
+	height: 80px;
+}
+
+/* --- Nav scroll: avoid #main slide glitch on menu click --- */
+
+body.nav-scrolling #main,
+body.nav-scrolling #headerToggle {
+	transition: none !important;
+}
+
+/* --- Homepage intro (#top) --- */
+
+header.intro {
+	margin: 0;
+}
+
+header.intro .intro-greeting {
+	color: rgba(255, 255, 255, 0.65);
+	font-size: 1.1em;
+	font-weight: 300;
+	letter-spacing: 0.12em;
+	margin: 0 0 0.6em 0;
+	text-transform: uppercase;
+}
+
+header.intro h2 {
+	font-size: 2em;
+	letter-spacing: -1px;
+	margin: 0 0 0.5em 0;
+}
+
+header.intro .intro-tagline {
+	font-size: 1.15em;
+	font-style: italic;
+	line-height: 1.5;
+	margin: 0 0 1em 0;
+	opacity: 0.9;
+}
+
+header.intro .intro-details {
+	font-size: 0.95em;
+	line-height: 1.7;
+	margin: 0;
+	opacity: 0.85;
+}
+
+@media screen and (max-width: 736px) {
+	header.intro .intro-greeting {
+		letter-spacing: 0.08em;
+		margin-bottom: 0.75em;
+	}
+
+	header.intro h2 {
+		font-size: 1.5em;
+		letter-spacing: 0;
+		margin-bottom: 0.6em;
+	}
+
+	header.intro .intro-tagline {
+		font-size: 1.05em;
+		line-height: 1.6;
+	}
+
+	header.intro .intro-details {
+		font-size: 0.9em;
+		line-height: 1.65;
+	}
+}
+
 /* --- Stories shelf (homepage #stories) — portfolio .item cards with book covers --- */
 
 #stories .row {

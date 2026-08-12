@@ -60,6 +60,15 @@
 
 						e.preventDefault();
 
+						// Close mobile sidebar without animating #main sideways.
+							$body
+								.removeClass('header-visible')
+								.addClass('nav-scrolling');
+
+							window.setTimeout(function() {
+								$body.removeClass('nav-scrolling');
+							}, 50);
+
 						// Clear active and lock scrollzer until scrolling has stopped
 							$nav_a
 								.removeClass('active')
